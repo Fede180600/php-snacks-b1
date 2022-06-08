@@ -40,26 +40,6 @@ $posts = [
 
 $my_dates = array_keys($posts);
 $my_dates_post = array_values($posts);
-// var_dump($my_dates_post);
-
-for ($i = 0; $i < count($my_dates_post); $i++) {
-    $current_posts_array = $my_dates_post[$i];
-    var_dump($current_posts_array);
-    for ($j = 0; $j < count($current_posts_array); $j++) {
-        var_dump($current_posts_array['title']);
-    }
-};
-
-die();
-
-// var_dump($my_dates);
-// for ($i = 0; $i < count($my_dates); $i++) {
-//     $current_date = $my_dates[$i];
-//     echo "<h2>Post del " . $current_date . ":</h2>";
-//     for ($y = 0; $y < count($my_dates_post); $y++) {
-//         var_dump($current_date_post);
-//     };
-// };
 ?>
 
 <!DOCTYPE html>
@@ -72,18 +52,27 @@ die();
 </head>
 <body>
     
-    <?php for ($i = 0; $i < count($my_dates); $i++) {
+    <?php
+     for ($i = 0; $i < count($my_dates); $i++) {
         $current_date = $my_dates[$i];   
     ?>
-    <ul>
-        <h2>Post del <?php echo $current_date ?>:</h2>
-        <?php 
-            for ($y = 0; $y < count($current_posts_array); $y++) {
-                echo $current_posts_array["title"];
-            }
-        ?>
-        <?php } ?>
-    </ul>
+        <ul>
+            <h2>Post del <?php echo $current_date ?>:</h2>
+            <?php 
+            
+                for ($y = 0; $y < count($my_dates_post); $y++) {
+                    $current_posts_array = $my_dates_post[$y];
+                    // die();
+
+                    for ($j = 0; $j < count($current_posts_array); $j++) {?>
+                        <li><?php echo $current_posts_array[$j]['title'] ?></li>
+                        <li><?php echo $current_posts_array[$j]['author'] ?></li>
+                        <li><?php echo $current_posts_array[$j]['text'] ?></li>
+
+                    <?php }; ?>
+                <?php }; ?>
+        </ul>
+    <?php } ?>
     
 </body>
 </html>
