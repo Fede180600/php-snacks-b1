@@ -36,10 +36,10 @@
     };
     $age_to_check = is_numeric($user_age);
     if ($age_to_check === true) {
-        echo "<br>" . "Età inserità " . $user_age . " valida";
+        echo "<br>" . "Età inserità " . $user_age . " anni";
         $controls[2] = true;
     } else {
-        echo "<br>" . "inserisci la tua età";
+        echo "<br>" . "inserisci un età valida";
         $controls[2] = false;
     }
     var_dump($controls);
