@@ -40,8 +40,17 @@ $posts = [
 
 $my_dates = array_keys($posts);
 $my_dates_post = array_values($posts);
-// $current__date_post = $my_dates_post[$y];
-var_dump($my_dates_post);
+// var_dump($my_dates_post);
+
+for ($i = 0; $i < count($my_dates_post); $i++) {
+    $current_posts_array = $my_dates_post[$i];
+    var_dump($current_posts_array);
+    for ($j = 0; $j < count($current_posts_array); $j++) {
+        var_dump($current_posts_array['title']);
+    }
+};
+
+die();
 
 // var_dump($my_dates);
 // for ($i = 0; $i < count($my_dates); $i++) {
@@ -66,8 +75,15 @@ var_dump($my_dates_post);
     <?php for ($i = 0; $i < count($my_dates); $i++) {
         $current_date = $my_dates[$i];   
     ?>
-    <ul><h2>Post del <?php echo $current_date ?>:</h2></ul>
-        <?php for ($j = 0; $j < count($my_dates_post); $j++)?>
-    <?php } ?>
+    <ul>
+        <h2>Post del <?php echo $current_date ?>:</h2>
+        <?php 
+            for ($y = 0; $y < count($current_posts_array); $y++) {
+                echo $current_posts_array["title"];
+            }
+        ?>
+        <?php } ?>
+    </ul>
+    
 </body>
 </html>
