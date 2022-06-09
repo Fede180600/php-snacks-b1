@@ -17,44 +17,56 @@
     $user_name = $_GET["name"];
     $user_email = $_GET["email"];
     $user_age = $_GET["age"];
-    $controls = ["", "", ""];
-    if (strlen($user_name) < 3) {
-        echo "Nome inserito non valido";
-        $controls[0] = false;
-    } else {
-        echo "Ciao " . "<strong>" . $user_name . "</strong>";
-        $controls[0] = true;
-    };
-    $at_position = strpos($user_email, "@");
-    $dot_position = strpos($user_email, ".");
-    if ($at_position === false || $dot_position === false) {
-        echo "<br>" . "Email non valida";
-        $controls[1] = false;
-    } else {
-        echo "<br>" . "La tua mail: " . "<strong>" . $user_email . "</strong>";
-        $controls[1] = true;
-    };
-    $age_to_check = is_numeric($user_age);
-    if ($age_to_check === true) {
-        echo "<br>" . "Età inserità " . $user_age . " anni";
-        $controls[2] = true;
-    } else {
-        echo "<br>" . "inserisci un età valida";
-        $controls[2] = false;
-    }
-    var_dump($controls);
 
-    for ($i = 0; $i < count($controls); $i++) {
-        $current_control = $controls[$i];
-    }
-    if ($current_control === false) {
-        echo "<h3>" . "Accesso Negato" . "</h3>";
+    // MY METHOD
+    // $controls = ["", "", ""];
+    // if (strlen($user_name) < 3) {
+    //     echo "Nome inserito non valido";
+    //     $controls[0] = false;
+    // } else {
+    //     echo "Ciao " . "<strong>" . $user_name . "</strong>";
+    //     $controls[0] = true;
+    // };
+    // $at_position = strpos($user_email, "@");
+    // $dot_position = strpos($user_email, ".");
+    // if ($at_position === false || $dot_position === false) {
+    //     echo "<br>" . "Email non valida";
+    //     $controls[1] = false;
+    // } else {
+    //     echo "<br>" . "La tua mail: " . "<strong>" . $user_email . "</strong>";
+    //     $controls[1] = true;
+    // };
+    // $age_to_check = is_numeric($user_age);
+    // if ($age_to_check === true) {
+    //     echo "<br>" . "Età inserità " . $user_age . " anni";
+    //     $controls[2] = true;
+    // } else {
+    //     echo "<br>" . "inserisci un età valida";
+    //     $controls[2] = false;
+    // }
+    // var_dump($controls);
+
+    // for ($i = 0; $i < count($controls); $i++) {
+    //     $current_control = $controls[$i];
+    // }
+    // if ($current_control === false) {
+    //     echo "<h3>" . "Accesso Negato" . "</h3>";
+    // } else {
+    //     echo "<h3>" . "Accesso Autorizzato" . "</h3>";
+    // }
+
+    // OLGA'S CORRECTION
+    if (
+        strlen($user_name) > 3 &&
+        strpos($user_email, "@") &&
+        strpos($user_email, ".") &&
+        is_numeric($user_age)
+    ) {
+        echo "Accesso riuscito";
     } else {
-        echo "<h3>" . "Accesso Autorizzato" . "</h3>";
+        echo "Accesso Negato";
     }
     ?>
-
-
 </body>
 
 </html>
