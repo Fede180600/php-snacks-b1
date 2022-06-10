@@ -1,4 +1,4 @@
-<?php 
+<?php
 $posts = [
     '10/01/2019' => [
         [
@@ -39,40 +39,16 @@ $posts = [
 ];
 
 $my_dates = array_keys($posts);
-$my_dates_post = array_values($posts);
+
+for($i = 0; $i < count($my_dates); $i++) {
+    $current_date = $my_dates[$i];
+    echo "<h2>" . $current_date . "</h2>";
+    $current_posts_array = $posts["$current_date"];
+    for($j = 0; $j < count($current_posts_array); $j++) {
+        $current_post = $current_posts_array[$j];
+        echo "<h3>" . $current_post['title'] . "</h3>";
+        echo "<p>" . $current_post['author'] . "</p>";
+        echo "<p>" . $current_post['text'] . "</p>";
+    }
+}
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <?php
-     for ($i = 0; $i < count($my_dates); $i++) {
-        $current_date = $my_dates[$i];   
-    ?>
-        <ul>
-            <h2>Post del <?php echo $current_date ?>:</h2>
-            <?php 
-            
-                for ($y = 0; $y < count($my_dates_post); $y++) {
-                    $current_posts_array = $my_dates_post[$y];
-                    // die();
-
-                    for ($j = 0; $j < count($current_posts_array); $j++) {?>
-                        <li><?php echo $current_posts_array[$j]['title'] ?></li>
-                        <li><?php echo $current_posts_array[$j]['author'] ?></li>
-                        <li><?php echo $current_posts_array[$j]['text'] ?></li>
-
-                    <?php }; ?>
-                <?php }; ?>
-        </ul>
-    <?php } ?>
-    
-</body>
-</html>
